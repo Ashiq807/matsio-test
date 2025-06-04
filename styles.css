@@ -97,6 +97,10 @@ nav ul li a {
   color: black;
 }
 
+nav ul li a:hover {
+  color: #40a5a2;
+}
+
 #toggle_btn {
   background-color: transparent;
   padding: 0.3rem;
@@ -140,7 +144,7 @@ nav ul li a {
   position: relative;
   z-index: 2;
   background-color: black;
-  min-height: 41rem;
+  padding: 1.5rem 0;
   overflow: hidden;
   display: flex;
 }
@@ -150,6 +154,7 @@ nav ul li a {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
   object-fit: cover;
   z-index: 1;
   opacity: 0.2;
@@ -159,8 +164,8 @@ nav ul li a {
   position: relative;
   z-index: 5;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .hero-text h1 {
@@ -171,22 +176,136 @@ nav ul li a {
 .hero-text p {
   color: white;
   font-weight: lighter;
-  width: 30rem;
 }
 
 .started {
   background-color: #40a5a2;
   color: white;
   padding: 0.8rem;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   border: none;
   cursor: pointer;
   display: inline-block;
   text-decoration: none;
 }
 
+.started:hover {
+  background-color: #02274c;
+}
+
 .space-1 > *:not(:first-child) {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.hero-text form h1 {
+  color: black;
+  font-size: 1.56rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text form {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  max-width: 22.8125rem;
+  animation: bubble 1s ease-in-out alternate infinite;
+}
+
+.hero-text form input:not([type="checkbox"]) {
+  width: 100%;
+  border-radius: 1.25rem;
+  border-color: #c4c4c4;
+  border-style: solid;
+  border-width: 0.1rem;
+  padding: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+.hero-text form div {
+  margin-bottom: 1rem;
+}
+
+.hero-text form label {
+  font-weight: lighter;
+  font-size: 0.8rem;
+}
+
+.hero-text form input:focus {
+  outline: none;
+}
+
+.agree {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.agree label {
+  flex-grow: 1;
+}
+
+.agree label a {
+  color: #00a5df;
+}
+
+.agree input {
+  margin-top: 0;
+}
+
+.submit {
+  background-color: #02274c;
+  border: none;
+  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 0.7rem;
+  gap: 0.1rem;
+  border-radius: 1.5rem;
+  max-width: 6.5rem;
+  min-height: 2.5rem;
+  cursor: pointer;
+}
+
+.submit:hover {
+  background-color: #40a5a2;
+}
+
+.services {
+  min-height: 24.375rem;
+  background-color: #f0f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+
+.service-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  color: #163651;
+}
+
+.service-items img {
+  margin-bottom: 1.5rem;
+}
+
+.service-items h1 {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  transition: font-size 0.3s ease-in-out;
+}
+
+.service-items h1:hover {
+  font-size: 1.7rem;
+}
+
+.service-items p {
+  font-size: 1.1rem;
+  line-height: 1.5rem;
 }
 
 /* Tablet */
@@ -196,6 +315,27 @@ nav ul li a {
   }
   #toggle_btn {
     display: none;
+  }
+  .hero-text p {
+    width: 20rem;
+  }
+  .hero {
+    min-height: 20.5rem;
+  }
+  .hero-text {
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    gap: 0;
+  }
+  .service-items {
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: row;
+  }
+  .services {
+    padding: 0;
   }
 }
 
@@ -231,5 +371,23 @@ nav ul li a {
   }
   .details {
     align-self: auto;
+  }
+  .hero-text p {
+    width: 30rem;
+  }
+  .hero {
+    min-height: 41rem;
+  }
+  .service-items {
+    gap: 7rem;
+  }
+}
+
+@keyframes bubble {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.05);
   }
 }
